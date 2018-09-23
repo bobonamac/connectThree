@@ -85,7 +85,7 @@ void promptMove(void) {
 	int scanVal;
 
 	do {
-		printf("%s - choose a column: ", 
+		printf("%s - choose a column/square: ", 
 			thisGame.turn % 2 == 0 ? thisGame.playerOne : thisGame.playerTwo);
 		scanVal = scanf(" %d", &thisGame.move);
 		// consumes remaining characters preventing perpetual loop
