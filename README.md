@@ -1,0 +1,1 @@
+This is a Connect "Three" game on a 3x3 grid - building on my Tic Tac Toe game. Like Connect Four each piece drops to the bottom of its perspective column. Three in a row in any direction wins.
