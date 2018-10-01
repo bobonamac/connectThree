@@ -115,15 +115,10 @@ int checkMove (void) {
 	 		thisGame.move = thisGame.move + 3;
 		}
 	}
-	else if ((thisGame.move + ASCII_0) == thisGame.board[thisGame.move - 1]) {
-		// thisGame.move = thisGame.move;
-	}
-
-	else {
+	else if ((thisGame.move + ASCII_0) != thisGame.board[thisGame.move - 1]) {
 		printf("That column is full\n\n");
 		return 1;
 	}
-	
 	// assigns x/o to appropriate array element
 	thisGame.board[thisGame.move - 1] = (thisGame.turn % 2 == 0 ? 'x' : 'o');
 
