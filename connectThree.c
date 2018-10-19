@@ -74,9 +74,12 @@ char * playerName(void) {
 
 void drawBoard(void) {
 	printf("\n");
-	printf("   %c %c %c\n", thisGame.board[0], thisGame.board[1], thisGame.board[2]);
-	printf("   %c %c %c\n", thisGame.board[3], thisGame.board[4], thisGame.board[5]);
-	printf("   %c %c %c\n", thisGame.board[6], thisGame.board[7], thisGame.board[8]);
+	printf("   %c %c %c\n", thisGame.board[0], thisGame.board[1], 
+		   thisGame.board[2]);
+	printf("   %c %c %c\n", thisGame.board[3], thisGame.board[4], 
+		   thisGame.board[5]);
+	printf("   %c %c %c\n", thisGame.board[6], thisGame.board[7], 
+		   thisGame.board[8]);
 	printf("\n");
 
 	return;
@@ -108,13 +111,16 @@ void promptMove(void) {
 
 int checkMove (void) {
 	// checks new move - is the space free?
-	if ((thisGame.move + ASCII_0) == thisGame.board[thisGame.move - 1] && (thisGame.move < 7)) {
+	if ((thisGame.move + ASCII_0) == thisGame.board[thisGame.move - 1] && 
+		(thisGame.move < 7)) {
 		// checks for open spaces below
-		while ((thisGame.move + ASCII_0 + 3) == thisGame.board[thisGame.move - 1 + 3] && 
+		while ((thisGame.move + ASCII_0 + 3) == 
+			    thisGame.board[thisGame.move - 1 + 3] && 
 			   (thisGame.move < 7)) {
 	 		thisGame.move = thisGame.move + 3;
 		}
 	}
+	// checks for a full column and returns 1 - causing reprompt for move
 	else if ((thisGame.move + ASCII_0) != thisGame.board[thisGame.move - 1]) {
 		printf("That column is full\n\n");
 		return 1;
@@ -144,12 +150,14 @@ int win(void) {
         }
 	}
 	// check for diaginal win
-	if (thisGame.board[0] == thisGame.board[4] && thisGame.board[4] == thisGame.board[8]) {
+	if (thisGame.board[0] == thisGame.board[4] && thisGame.board[4] == 
+		thisGame.board[8]) {
 		printf("Checking for win - %c wins!\n", thisGame.board[0]);
 		return 1;
 	}
 	// check for diaginal win
-	else if (thisGame.board[2] == thisGame.board[4] && thisGame.board[4] == thisGame.board[6]) {
+	else if (thisGame.board[2] == thisGame.board[4] && thisGame.board[4] == 
+		     thisGame.board[6]) {
 		printf("Checking for win - %c wins!\n", thisGame.board[2]);
 		return 1;
 	}
